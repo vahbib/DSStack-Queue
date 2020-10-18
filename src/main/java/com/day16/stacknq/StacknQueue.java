@@ -50,7 +50,7 @@ public class StacknQueue {
     }
 
     public static void main(String[] args) {
-        
+
         StacknQueue obj = new StacknQueue();
         obj.push(70);
         obj.push(30);

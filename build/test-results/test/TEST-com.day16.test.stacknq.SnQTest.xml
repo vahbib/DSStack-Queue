@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.day16.test.stacknq.SnQTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-18T14:22:28" hostname="DESKTOP-9T3G1G1" time="0.002">
+  <properties/>
+  <testcase name="testSnQ" classname="com.day16.test.stacknq.SnQTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
