@@ -48,6 +48,30 @@ public class StacknQueue {
             }
         }
     }
+    public boolean isEmpty()
+    {
+        return top == null;
+    }
+    // UserCase 2: Peek & Pop
+    public int peek()
+    {
+        // check for non empty stack
+        if (!isEmpty())
+        {
+//            System.out.println(top.data);
+            return top.data;
+        }
+        else
+        {
+            System.out.println("Stack is empty");
+            return -1;
+        }
+    }
+    public void pop() {
+        while (top != null) {
+            top = (top).link;
+        }
+    }
 
     public static void main(String[] args) {
         
@@ -55,7 +79,11 @@ public class StacknQueue {
         obj.push(70);
         obj.push(30);
         obj.push(56);
-
         obj.display();
+        System.out.printf("\nTop element is %d\n", obj.peek()); //UC2
+
+        obj.pop(); // UC 2
+        obj.display();
+
     }
 }
