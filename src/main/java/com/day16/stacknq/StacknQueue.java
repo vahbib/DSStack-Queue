@@ -1,61 +1,54 @@
 package com.day16.stacknq;
 
+
 import static java.lang.System.exit;
 
 public class StacknQueue {
-    private class Node {
+    static class QNode {
+        int key;
+        QNode next;
 
-        int data; // integer data
-        Node link; // reference variable Node type
+        public QNode(int key)
+        {
+            this.key = key;
+            this.next = null;
+        }
     }
-    Node top;
-    StacknQueue()
-    {
-        this.top = null;
-    }
 
-    // UserCase 1
-    // insert at the beginning
-    public void push(int x)
-    {
+    static class Queue {
+        QNode front, rear;
 
-        Node temp = new Node();
-
-        if (temp == null) {
-            System.out.println("Heap Overflow");
-            return;
+        public Queue()
+        {
+            this.front = this.rear = null;
         }
 
-        temp.data = x;
+        // UC 3 - Method to add an key to the queue
+        void enqueue(int key)
+        {
+            QNode temp = new QNode(key);
 
-        temp.link = top;
-
-        top = temp;
-    }
-    public void display()
-    {
-        if (top == null) {
-            System.out.println("Stack Underflow");
-            exit(1);
-        }
-        else {
-            Node temp = top;
-            while (temp != null) {
-
-                System.out.printf("%d-->", temp.data);
-
-                temp = temp.link;
+            // If queue is empty, then new node is front and rear both
+            if (this.rear == null) {
+                this.front = this.rear = temp;
+                return;
             }
+
+            // Add the new node at the end of queue and change rear
+            this.rear.next = temp;
+            this.rear = temp;
         }
+
     }
 
     public static void main(String[] args) {
-        
-        StacknQueue obj = new StacknQueue();
-        obj.push(70);
-        obj.push(30);
-        obj.push(56);
+        Queue q = new Queue();
+        q.enqueue(56);
+        q.enqueue(30);
+        q.enqueue(70);
+        //System.out.println("Queue is: "+q);
+        System.out.println("Queue Front : " + q.front.key);
+        System.out.println("Queue Rear : " + q.rear.key);
 
-        obj.display();
     }
 }
